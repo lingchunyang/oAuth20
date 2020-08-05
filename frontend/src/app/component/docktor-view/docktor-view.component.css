@@ -1,0 +1,10 @@
+.flex-row-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;    
+}
+.flex-column-container {
+    display: flex;
+    flex-direction: column;
+    align-items:center;    
+}
