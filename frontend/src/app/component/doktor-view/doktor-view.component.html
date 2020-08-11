@@ -1,0 +1,107 @@
+<!-- <div class="flex-row-container">
+    <div class="flex-column-container" style="flex-grow: 1">
+        <ng-container *ngIf="allPatients">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Patienten Protokoll erstellen</mat-card-title>
+                    <button mat-raised-button color="primary" (click)=onCreateBtnClick()>Create</button>
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select an option</mat-label>
+                        <mat-select [(value)]="selectedPatient">
+                          <mat-option *ngFor = "let patient of allPatients" [value]="patient">
+                              {{patient.name}} &nbsp; {{patient.family_name}}
+                            </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <form>
+                        <mat-form-field>
+                            <textarea matInput type="text" [(ngModel)]="description" name="desc"></textarea>
+                        </mat-form-field>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </ng-container>
+    </div>  
+    <div class="flex-column-container" style="flex-grow: 1"></div>>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Zeige Patientenprotokoll an</mat-card-title>
+                <mat-form-field appearance="fill">
+                    <mat-label>Select an option</mat-label>
+                    <mat-select [(value)]="selectedPatientShow">
+                      <mat-option *ngFor = "let patient of allPatients" [value]="patient">
+                          {{patient.name}} &nbsp; {{patient.family_name}}
+                        </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <button mat-raised-button color="primary" (click)=onShowProtocolClick()>Anzeigen</button>
+            </mat-card-header>
+            <mat-card-content>
+                <ng-container *ngIf="protocols">
+                    <mat-card *ngFor="let protocol of protocols">
+                        <div class="flex-column-container">
+                            <div>{{protocol.username}}</div>
+                            <div>{{protocol.date}}</div>
+                            <div>{{protocol.description}}</div>
+                        </div>
+                    </mat-card>
+                </ng-container>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+ -->
+
+<div class="flex-row-container">
+    <ng-container *ngIf="allPatients" >
+        <mat-card class="item">
+            <mat-card-header>
+                <mat-card-title>Patienten Protokoll erstellen</mat-card-title>
+                <button mat-raised-button color="primary" (click)=onCreateBtnClick()>Create</button>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-form-field appearance="fill">
+                    <mat-label>Select an option</mat-label>
+                    <mat-select [(value)]="selectedPatient">
+                      <mat-option *ngFor = "let patient of allPatients" [value]="patient">
+                          {{patient.name}} &nbsp; {{patient.family_name}}
+                        </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <form>
+                    <mat-form-field>
+                        <textarea matInput type="text" [(ngModel)]="description" name="desc"></textarea>
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </ng-container>
+    <mat-card class="item">
+        <mat-card-header>
+            <mat-card-title>Zeige Patientenprotokoll an</mat-card-title>
+            <mat-form-field appearance="fill">
+                <mat-label>Select an option</mat-label>
+                <mat-select [(value)]="selectedPatientShow">
+                  <mat-option *ngFor = "let patient of allPatients" [value]="patient">
+                      {{patient.name}} &nbsp; {{patient.family_name}}
+                    </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <button mat-raised-button color="primary" (click)=onShowProtocolClick()>Anzeigen</button>
+        </mat-card-header>
+        <mat-card-content>
+            <ng-container *ngIf="protocols">
+                <mat-card *ngFor="let protocol of protocols">
+                    <div class="flex-column-container">
+                        <div>{{protocol.username}}</div>
+                        <div>{{protocol.date}}</div>
+                        <div>{{protocol.description}}</div>
+                    </div>
+                </mat-card>
+            </ng-container>
+        </mat-card-content>
+    </mat-card>
+</div>  
+

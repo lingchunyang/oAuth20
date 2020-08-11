@@ -17,7 +17,8 @@ const app = express();
 app.use(express.json())
 
 app.use(cors({origin: [
-    "http://localhost:4200"
+    "http://localhost:4200",
+    "http://lingchunyang.s3-website.eu-central-1.amazonaws.com"
   ], credentials: true}));
   
   app.use(cookieParser());

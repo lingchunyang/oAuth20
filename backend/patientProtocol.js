@@ -5,6 +5,8 @@ const cognitoService = require("./cognito.service");
 const router = express.Router();
 
 router.post('/patientprotocol', (req, res) => {
+    console.log(req.body);
+
     tokenService.getAccessToken(req.session).then(token => {
         axios.post(`${process.env.RESOURCE_SERVER}/patient/protocol`, {
             userId: req.body.userId,
@@ -15,7 +17,8 @@ router.post('/patientprotocol', (req, res) => {
                 'aws-token': token.encodedToken
             }
         }).then(body => {
-            res.send(200, 'ok')
+            console.log(body);
+            res.send(200, 'ok');
         });
     });
 });

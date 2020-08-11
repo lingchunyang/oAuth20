@@ -25,7 +25,7 @@ router.post('/protocol', tokenService.doctorGuard, (req, res) => {
         protocol.visitDate = new Date();
         protocol.doctorId = token.username;
         protocol.save();
-        res.send('Update Protocol');
+        res.send(200);
     });
 });
 

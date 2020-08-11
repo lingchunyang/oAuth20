@@ -2,12 +2,12 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 import {LoginComponent} from "./component/login/login.component";
-import { DocktorViewComponent } from './component/docktor-view/docktor-view.component';
+import { DoktorViewComponent } from './component/doktor-view/doktor-view.component';
 import {AuthGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'doctor-view', component: DocktorViewComponent, canActivate:[AuthGuard]}
+  { path: 'doctor-view', component: DoktorViewComponent, canActivate:[AuthGuard]}
 
 ]; // sets up routes constant where you define your routes
 

@@ -37,8 +37,9 @@ router.get('/callback', (req, res) => {
         code: session.oauthCode
     }), options).then(response => {
         session.oAuth = response.data;
-        res.redirect(301, 'http://localhost:4200/doctor-view');
+        res.redirect(301, `${process.env.COGNITO_URL}/doctor-view`);
     }   );
 });
 
 module.exports = router;
+

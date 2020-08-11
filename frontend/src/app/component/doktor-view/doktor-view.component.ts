@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
+
+
 @Component({
-  selector: 'app-docktor-view',
-  templateUrl: './docktor-view.component.html',
-  styleUrls: ['./docktor-view.component.css']
+  selector: 'app-doktor-view',
+  templateUrl: './doktor-view.component.html',
+  styleUrls: ['./doktor-view.component.css']
 })
-export class DocktorViewComponent implements OnInit {
+export class DoktorViewComponent implements OnInit {
   allPatients;
 
   selectedPatient;
@@ -18,7 +22,7 @@ export class DocktorViewComponent implements OnInit {
 
   protocols;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.httpClient.get('http://localhost:3030/api/allPatient')
@@ -28,6 +32,7 @@ export class DocktorViewComponent implements OnInit {
   }
 
   onCreateBtnClick(): void {
+    console.log(this.description);
     this.httpClient.post('http://localhost:3030/api/patientprotocol',
       {
         userId: this.selectedPatient.userId,
@@ -38,6 +43,8 @@ export class DocktorViewComponent implements OnInit {
         withCredentials: true})
         .subscribe( response => {
           console.log(response);
+          this.dialog.open(DialogComponent);
+          this.description = '';
         });
     }
 
